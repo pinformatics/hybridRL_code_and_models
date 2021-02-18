@@ -16,3 +16,6 @@ You can use our trained models to conduct record linkage on your data or train a
  3. If you want to use n2v feature for first name and last name, run code\add_feature_name2vec.py on the output from step 2 and then run code\2_n2v_postprocess.R 
  4. Run code\3_*_model_*.R to train different ML RL models with your own data.
  6. Run code\5_*_test_NC*.R to test models on testing data.
+
+### Manual RL
+Our code will save the uncertain pairs (that need manual review) as a CSV file. Each pair will be reviewed by two reviewer individually. If there is any disagreement, means one reviewer believes the pair is match and the other believes it is unmatch, two other reviewer will review that pair. If there is still disagreement, the four of them will have an open discussion meeting to resolve the pair. 
