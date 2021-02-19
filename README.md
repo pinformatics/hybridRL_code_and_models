@@ -19,3 +19,6 @@ You can use our trained models to conduct record linkage on your data or train a
 
 ### Manual RL
 Our code will save the uncertain pairs (that need manual review) as a CSV file. Each pair will be reviewed by two reviewer individually. If there is any disagreement, means one reviewer believes the pair is match and the other believes it is unmatch, two other reviewer will review that pair. If there is still disagreement, the four of them will have an open discussion meeting to resolve the pair. 
+
+
+You can find more information here: https://pinformatics.org/ppirl/mindfirl.php
