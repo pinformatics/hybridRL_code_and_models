@@ -1,7 +1,11 @@
 source("./code/utils.R")
 theme_set(theme_light())
 
-df_test_final <- read_rds(("./data/NC_test_all2.rds"))
+#install.packages("randomForest")
+#install.packages("kernlab")
+#df_test_final <- read_rds(("./data/NC_test_all2.rds"))
+
+df_test_final <- read.csv("./sample data/NC_sample_featured_pairs.csv")
 
 df_test_final$metric_ffreq_a <- data.matrix(df_test_final$metric_ffreq_a)
 df_test_final$metric_ffreq_b <- data.matrix(df_test_final$metric_ffreq_b)
@@ -12,7 +16,7 @@ df_test_final$metric_lfreq_b <- data.matrix(df_test_final$metric_lfreq_b)
 #               model_RF_1_all
 ################################################
 
-model <- read_rds("./result/model_RF_1_all.rds")  
+model <- read_rds("./models/model_RF_1_all.rds")  
 
 #t1 <- 0.949
 #t2 <- 0.103
@@ -78,7 +82,7 @@ F1
 #               model_SVM_linear_1_all
 ################################################
 
-model <- read_rds("./result/model_svmLinear_1_all.rds")  
+model <- read_rds("./models/model_svmLinear_1_all.rds")  
 
 #t1 <- 0.974
 #t2 <- 0.085
@@ -144,7 +148,7 @@ F1
 #               model_SVM_radial_1_all
 ################################################
 
-model <- read_rds("./result/model_svmRadial_1_all.rds")  
+model <- read_rds("./models/model_svmRadial_1_all.rds")  
 
 #t1 <- 0.976
 #t2 <- 0.233
@@ -209,10 +213,16 @@ F1
 #################################################
 #               model_NN_1_all
 ################################################
-load("result/model_NN_1_all.RData")
-model <- load_model_hdf5("result/model_NN_1_all.h5")
+#install.packages("tensorflow")
+#install.packages("keras")
+library(tensorflow)
+#install_tensorflow()
+library(keras)
 
-T1 <- 0.93
+load("models/model_NN_1_all.RData")
+model <- load_model_hdf5("models/model_NN_1_all.h5")
+
+t1 <- 0.93
 df_ts <- df_test_final %>% 
   group_by(match) %>% 
   ungroup() %>% 
@@ -223,12 +233,7 @@ df_ts <-
   select(contains("metric"), match) %>% 
   mutate_if(is.logical, as.integer) %>% 
   mutate_if(is.factor, as.integer) %>% 
-  mutate_if(is.integer, as.double)
-
-df_ts <- 
-  pmap_df(list(a = df_ts, b = tr_means, c = tr_sds), function(a, b, c){
-    (a -b)/c
-  }) %>% 
+  mutate_if(is.integer, as.double) %>%
   mutate_all(fill_na_0) %>% 
   mutate(match = ifelse(match == min(match), 0, 1))
 
