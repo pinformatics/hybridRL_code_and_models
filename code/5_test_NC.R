@@ -18,10 +18,10 @@ df_test_final$metric_lfreq_b <- data.matrix(df_test_final$metric_lfreq_b)
 
 model <- read_rds("./models/model_RF_1_all.rds")  
 
-#t1 <- 0.949
-#t2 <- 0.103
-t1 <- 0.78
-t2 <- 0.32
+t1 <- 0.949
+t2 <- 0.103
+#t1 <- 0.78
+#t2 <- 0.32
 
 df_collection = tibble(model_rf_full = list(model),
                        df_ts = list(df_test_final))
@@ -84,11 +84,11 @@ F1
 
 model <- read_rds("./models/model_svmLinear_1_all.rds")  
 
-#t1 <- 0.974
-#t2 <- 0.085
+t1 <- 0.974
+t2 <- 0.085
 
-t1 <- 0.9
-t2 <- 0.2
+#t1 <- 0.9
+#t2 <- 0.2
 
 df_collection = tibble(model_svm_full = list(model),
                        df_ts = list(df_test_final))
@@ -150,11 +150,11 @@ F1
 
 model <- read_rds("./models/model_svmRadial_1_all.rds")  
 
-#t1 <- 0.976
-#t2 <- 0.233
+t1 <- 0.976
+t2 <- 0.233
 
-t1 <- 0.98
-t2 <- 0.23
+#t1 <- 0.98
+#t2 <- 0.23
 
 df_collection = tibble(model_svm_full = list(model),
                        df_ts = list(df_test_final))
