@@ -1,6 +1,7 @@
 # hybridRL_code_and_models
 This repository contains code and models for this paper:  
-M. Ramezani , H.-C. Kum, G. Ilangovan, “Evaluation of Machine Learning Algorithms in a Human-Computer Hybrid Record Linkage System”, in the Association for the Advancement of Artificial Intelligence Symposium - Combining Machine Learning and Knowledge Engineering (AAAI-MAKE) 2021. The presentation video: https://tube.switch.ch/videos/erw18iriu6
+M. Ramezani , H.-C. Kum, G. Ilangovan, “Evaluation of Machine Learning Algorithms in a Human-Computer Hybrid Record Linkage System”, in the Association for the Advancement of Artificial Intelligence Symposium - Combining Machine Learning and Knowledge Engineering (AAAI-MAKE) 2021. (http://ceur-ws.org/Vol-2846/paper25.pdf)
+The presentation video: https://tube.switch.ch/videos/erw18iriu6
 
 For further information contact Mahin: mahin@tamu.edu
 
